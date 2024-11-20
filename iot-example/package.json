@@ -1,0 +1,22 @@
+{
+  "name": "iot-example",
+  "version": "1.0.0",
+  "description": "IoT Example having one gatway.js as well as pub.ja for a sensor(s) and sub.js for controls",
+  "main": "gateway.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamayanthaPAA/IoT.git"
+  },
+  "keywords": [
+    "IOT"
+  ],
+  "author": "Anura Damayantha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamayanthaPAA/IoT/issues"
+  },
+  "homepage": "https://github.com/DamayanthaPAA/IoT#readme"
+}
