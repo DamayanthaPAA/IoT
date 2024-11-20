@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "IoT Example having one gatway.js as well as pub.ja for a sensor(s) and sub.js for controls",
   "main": "gateway.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/DamayanthaPAA/IoT/issues"
   },
-  "homepage": "https://github.com/DamayanthaPAA/IoT#readme"
+  "homepage": "https://github.com/DamayanthaPAA/IoT#readme",
+  "dependencies": {
+    "mqtt": "^5.10.2"
+  }
 }
