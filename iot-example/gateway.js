@@ -6,6 +6,7 @@ const username = 'IoT-GUEST';
 const password = 'Gj@ci85TjdJvzMZ';
 const clientId = 'gateway-controller-001-receiver'; // Changed clientId to indicate this is a receiver
 const topic = '/karelia/wartsila/026a/status';
+const roomo26ALightsTopic ='/karelia/wartsila/026a/lights';
 
 // MQTT client options
 const options = {
@@ -39,11 +40,24 @@ client.on('message', (topic, message) => {
     try {
         const frames = message.toString();
         const obj = JSON.parse(frames);
-        // console.log('---------------------');
-        // console.log('Topic:', topic);
+        console.log('---------------------');
+        console.log('Topic:', topic);
         console.log('Temperature:', obj.temperature.toFixed(2) + '°C');
-        // console.log('Illumination:', obj.illumination.toFixed(2));
-        // console.log('---------------------');
+        console.log('Illumination:', obj.illumination.toFixed(2));
+        console.log('---------------------');
+
+        console.log('occupied:', obj.occupied);
+        console.log('---------------------');
+
+        console.log('humidity:', obj.humidity);
+        console.log('---------------------');
+
+        if (obj.occupied && obj.illumination < 50) {
+            const frame = JSON.stringify({"value":true}) //light on
+            client.publish(roomo26ALightsTopic , frame)
+            console.log("Lights swithed on.")
+        }
+
     } catch (error) {
         console.error('Error parsing message:', error);
         console.error('Raw message:', message.toString());

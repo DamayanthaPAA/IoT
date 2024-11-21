@@ -4,7 +4,7 @@ import mqtt from 'mqtt';
 const url = 'mqtts://f0ae3f10c7934f22af58baf1325a7a00.s2.eu.hivemq.cloud:8883';
 const username = 'IoT-GUEST';
 const password = 'Gj@ci85TjdJvzMZ';
-const clientId = 'gateway-controller-001-reporter';
+const clientId = 'gateway-controller-001-reporter-anura';
 const topic = '/karelia/wartsila/026a/status';
 const timerDelay = 5000;
 
@@ -29,7 +29,9 @@ client.on('connect', () => {
     setInterval(() => {
         const data = {
             temperature: Math.random() * 10 + 15,
-            illumination: Math.random() * 100
+            illumination: Math.random() * 100,
+            occupied : (Math.random() >= 0.5) ,
+            humidity: (Math.random() * 100)
         };
 
         const frame = JSON.stringify(data);
